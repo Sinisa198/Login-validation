@@ -1,0 +1,278 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: rgb(204, 204, 204);
+  font-size:25px
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 8vh;
+  background: rgb(0, 33, 65);
+}
+.nav__brand {
+  text-transform: uppercase;
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+}
+.nav__toggler {
+  display: none;
+}
+.nav__toggler div {
+  width: 2.5rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: rgb(204, 204, 204);
+  transition: 0.3s ease-in;
+}
+.logout-title{
+  text-align: center;
+  font-size:60px;
+  margin-top:10%;
+}
+@media screen and (max-width: 768px) {
+  .nav__toggler {
+    display: block;
+    cursor: pointer;
+  }
+  .nav__menu {
+    position: fixed;
+    top: 7vh;
+    right: 0;
+    height: 93vh;
+    width: 50vw;
+    background: rgb(0, 33, 65);
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: 0.5s ease-in;
+  }
+}
+.nav__active {
+  transform: translateX(0%);
+}
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-4px, 5px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-4px, -5px);
+}
+.key-image{
+  width: 44%;
+  height: 20%;
+  margin-left:50%;
+}
+.title{
+  margin-left:13%;
+  margin-top:13px;
+  font-size:20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:gray;
+}
+.success{
+  margin-left:13%;
+  margin-top:200px;
+}
+.learn-more-btn{
+  width: 140px;
+  height: 44px;
+  background-color:rgb(0, 33, 65);
+  border: 2px solid rgb(0, 33, 65);
+  font-size: 15px;
+  font-weight: bold;
+  color:white;
+  border-radius: 10px;
+  margin-left:17%;
+  margin-top:30px
+}
+.image{
+  margin-top:-280px;
+  height: 40%;
+  width: 99%;
+}
+.logo{
+  width: 150px;
+  height: 50px;
+}
+.secondpage{
+  background-color: rgb(0, 33, 65);
+  height: 700px;
+  font-size:13px;
+  color:white;
+  font-weight: bold;
+  margin-top:15%;
+  padding:0.5px;
+  height: 50%;
+}
+.second-title{
+  text-align: right;
+  margin-top:15%;
+  margin-right: 3%;
+}
+.keytosucces{
+  margin-left:8%;
+  margin-top:-9%;
+  border-radius: 15px;
+  padding-bottom:8%;
+  width: 600px;
+  height: 500px;
+}
+.footer{
+  height: 90px;
+  background-color:rgb(0, 33, 65);
+  color:white;
+  font-weight: bold;
+  text-align:center;
+}
+.titlee{
+  text-align: right;
+}
+.form{
+  margin-top:7%;
+  border:1px solid rgb(0, 33, 65);
+  text-align: center;
+  width: 30%;
+  padding-bottom: 80px;
+  padding-top: 30px;
+  margin-left:37%;
+  border-radius: 30px;
+  background-color: rgb(0, 33, 65);
+}
+.login-input{
+  height: 30px;
+  width: 300px;
+  margin:15px;
+}
+.login-icon{
+  height: 200px;
+}
+.login-btn{
+  width: 190px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: black;
+  color:white;
+  margin:20px
+}
+.login-btn:hover{
+  color:black;
+  background-color: white;
+}
+.wrapper{
+  margin-top: 10%;
+  margin-top: 200px;
+}
+.wrapper h1{
+  font-family: 'Allura', cursive;
+  font-size: 52px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+.team{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.team .tips{
+  background: #fff;
+  margin: 30px;
+  margin-bottom: 50px;
+  width: 300px;
+  padding: 20px;
+  line-height: 20px;
+  color: #8e8b8b;  
+  position: relative;
+  background-color: rgb(0, 33, 65);
+  color:white;
+  border-radius: 10px;
+}
+.team .tips h3{
+  color: white;
+  font-size: 26px;
+  margin-top: 50px;
+}
+.team .tips p.role{
+  color: #ccc;
+  margin: 12px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  
+}
+.team .tips .icons{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.team .tips .icons img{
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
+.icon{
+  border-radius: 35px;
+}
+.final-title{
+  text-align: center;
+  font-size:30px;
+  margin-top:70px;
+  height: 800px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:gray;
+}
+.image-comunication{
+  width: 30%;
+  margin-top:-50%;
+  margin-left:36%;
+}
+.final-page{
+  height: 1200px;
+}
+.finish{
+  text-align: center;
+  font-size:20px;
+  margin-top:7%;
+  color:gray;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.copyright{
+  padding:30px
+}
+.logout-button{
+  width: 200px;
+  height: 50px;
+  border-radius:20px;
+  background-color: black;
+  color:white;
+  margin-left:45%;
+  margin-top:150px;
+}
