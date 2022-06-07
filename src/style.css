@@ -66,6 +66,9 @@ a {
     transform: translateX(100%);
     transition: 0.5s ease-in;
   }
+  .titlee{
+    font-size:5%;
+  }
 }
 .nav__active {
   transform: translateX(0%);
@@ -84,10 +87,35 @@ a {
   height: 20%;
   margin-left:50%;
 }
+@media screen and (max-width: 768px) {
+  .key-image{
+    margin-top:70%;
+    margin-left:20%;
+    height: 100px;
+    width: 300px;
+  }
+  .titlee{
+    font-size:20px;
+    margin-top:-20px;
+  } 
+  .keytosucces{
+    width: 200px;
+  }
+  .form{
+    width: 20%;
+  }
+}
+ @media screen and (max-width:768px){
+   .image-comunication{
+    height: 6%;
+    width: 50%;
+   }
+ }
+
 .title{
   margin-left:13%;
-  margin-top:13px;
-  font-size:20px;
+  margin-top:20px;
+  font-size:100%;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color:gray;
 }
@@ -162,14 +190,15 @@ a {
 }
 .login-input{
   height: 30px;
-  width: 300px;
+  width: 37%;
   margin:15px;
 }
 .login-icon{
-  height: 200px;
+  height: 10%;
+  width: 40%;
 }
 .login-btn{
-  width: 190px;
+  width: 50%;
   height: 40px;
   border-radius: 10px;
   background-color: black;
@@ -250,9 +279,9 @@ a {
   color:gray;
 }
 .image-comunication{
-  width: 30%;
+  width: 26%;
   margin-top:-50%;
-  margin-left:36%;
+  margin-left:38%;
 }
 .final-page{
   height: 1200px;

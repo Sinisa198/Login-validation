@@ -1,8 +1,8 @@
 import React from 'react'
 
-import icon from '../../assets/images/first.jpg'
-import secondicon from '../../assets/images/secondicon.jpg'
-import threeicon from '../../assets/images/threeicon.jpg'
+import icon from '../assets/images/first.jpg'
+import secondicon from '../assets/images/secondicon.jpg'
+import threeicon from '../assets/images/threeicon.jpg'
 
 const Tips = () => {
     return (

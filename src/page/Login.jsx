@@ -1,7 +1,8 @@
 import React from "react";
-
-import loginicon from '../../assets/images/loginicon.jpg'
 import { Link } from 'react-router-dom'
+
+import loginicon from '../assets/images/loginicon.jpg'
+
 const initialState = {
   name: "",
   email: "",

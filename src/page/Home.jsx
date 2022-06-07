@@ -1,9 +1,10 @@
 import React from 'react'
 
-import key from '../../assets/images/key.jpg'
-import anotherkey from '../../assets/images/anotherkey.jpg'
-import Footer from '../footer/Footer'
-import comunication from '../../assets/images/comunication.jpg'
+import key from '../assets/images/key.jpg'
+import anotherkey from '../assets/images/anotherkey.jpg'
+import Footer from '../components/Footer'
+import comunication from '../assets/images/comunication.jpg'
+import '../style.css'
 const Home = () => {
   
   return (

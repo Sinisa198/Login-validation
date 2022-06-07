@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-import  Home  from './page/home/Home'
-import Tips from './page/tips/Tips';
-import Login from './page/login/Login'
-import NavBar from './page/navbar/NavBar';
-import LogOut from './page/LogOut';
+import NavBar from './components/NavBar';
+import Home from './page/Home'
+import Tips from './page/Tips'
+import Login from './page/Login'
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,7 +15,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/tips" element={<Tips />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<LogOut />} />
       </Routes>
     </BrowserRouter>
   )
