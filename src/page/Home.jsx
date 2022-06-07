@@ -5,6 +5,7 @@ import anotherkey from '../assets/images/anotherkey.jpg'
 import Footer from '../components/Footer'
 import comunication from '../assets/images/comunication.jpg'
 import '../style.css'
+
 const Home = () => {
   
   return (
@@ -29,7 +30,7 @@ const Home = () => {
              </h1>
           </div>
 
-            <div className="another-image">
+             <div className="another-image">
              <img src={anotherkey} className='keytosucces' alt="" /> 
             </div>       
         </div>
