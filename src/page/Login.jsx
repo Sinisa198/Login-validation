@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import loginicon from '../assets/images/loginicon.jpg'
 
 const initialState = {
+  
   name: "",
   email: "",
   password: "",
@@ -16,7 +17,7 @@ const initialState = {
 
  export default class Login extends React.Component {
   state = initialState;
-
+    
   handleChange = event => {
     const isCheckbox = event.target.type === "checkbox";
     this.setState({
@@ -25,7 +26,6 @@ const initialState = {
         : event.target.value
     });
   };
-
   validate = () => {
     let nameError = "";
     let emailError = "";
@@ -42,7 +42,7 @@ const initialState = {
     if (!this.state.password) {
       passwordError = "Invalid password";
     }
-    if (!this.state.link.includes("https://github.com")) {
+    if (!this.state.link.includes("github.com")) {
         linkError = "Invalid link repository"
     }
     if (emailError || nameError || passwordError || linkError) {
@@ -60,7 +60,6 @@ const initialState = {
       this.setState(initialState);
     }
   };
-
   render() {
     return (
         <div> 
@@ -94,7 +93,7 @@ const initialState = {
           <input className='login-input'
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder= "Password"
             value={this.state.password}
             onChange={this.handleChange}
             
@@ -116,7 +115,7 @@ const initialState = {
           
           
         </div>
-        <button type="login" className="login-btn">Login</button>
+        <Link to='/profile'> <button type="login" className="login-btn"> Login</button></Link>
       </form>
       </div>
     );
