@@ -108,7 +108,7 @@ a {
  @media screen and (max-width:768px){
    .image-comunication{
     height: 6%;
-    width: 50%;
+    width: 60%;
    }
  }
 
@@ -216,16 +216,16 @@ a {
   width: 40%;
 }
 .login-btn{
-  width: 50%;
+  width: 35%;
   height: 40px;
   border-radius: 10px;
-  background-color: black;
-  color:white;
+  background-color: lightgrey;
+  color:black;
   margin:20px
 }
 .login-btn:hover{
-  color:black;
-  background-color: white;
+  color:white;
+  background-color: black;
 }
 .wrapper{
   margin-top: 10%;
