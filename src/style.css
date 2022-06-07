@@ -305,3 +305,10 @@ a {
   margin-left:45%;
   margin-top:150px;
 }
+@media screen and (max-width:768px){
+  .keytosucces{
+    height: 200px;
+    width: 400px;
+    margin-top:30px;
+  }
+}
