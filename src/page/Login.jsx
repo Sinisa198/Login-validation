@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import loginicon from '../assets/images/loginicon.jpg'
-
+import { Link } from 'react-router-dom'
 const initialState = {
-  
   name: "",
   email: "",
   password: "",
@@ -15,9 +13,11 @@ const initialState = {
   linkError: ""
 };
 
- export default class Login extends React.Component {
-  state = initialState;
+
+  class Login extends React.Component {
     
+  state = initialState;
+
   handleChange = event => {
     const isCheckbox = event.target.type === "checkbox";
     this.setState({
@@ -50,18 +50,22 @@ const initialState = {
       return false;
     }
     return true;
+    
   };
 
-  handleSubmit = event => {
+    handleSubmit = event => {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
       console.log(this.state);
       this.setState(initialState);
     }
+    else
+      console.log('Login for go to the next page')
   };
   render() {
     return (
+          
         <div> 
             <h1 className='login-title'>Log in</h1>
             <p className='login-paragraf'>Share with us your success</p>
@@ -115,9 +119,11 @@ const initialState = {
           
           
         </div>
-        <Link to='/profile'> <button type="login" className="login-btn"> Login</button></Link>
+        <button type="login" className="login-btn" onClick={this.buttonClick}> Login </button>
       </form>
       </div>
     );
   }
 }
+
+export default Login;

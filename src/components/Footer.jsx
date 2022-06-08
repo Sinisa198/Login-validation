@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div>
@@ -7,8 +8,8 @@ const Footer = () => {
         <div className='wrap'>
           <div className='footer__wrap'>
             <div className='footer__logo'>
-              <a href='/' className='header__home'>
-              </a>
+              <Link to='/' className='header__home'>
+              </Link>
             </div>
             <div className='copyright'>
               <span>Copyright © 2022 Sinisa Ljubanovic</span>{' '}

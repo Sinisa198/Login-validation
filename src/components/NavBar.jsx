@@ -20,7 +20,7 @@ const Navbar = () => {
   };
   return (
     <nav className="nav">
-      <Link to="#" className="nav__brand">
+      <Link to="/" className="nav__brand">
       <img src={logo} className='logo' alt="" />
       </Link>
       <ul className={active}>
