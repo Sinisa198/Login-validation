@@ -15,7 +15,7 @@ const initialState = {
 
 
   class Login extends React.Component {
-    
+     
   state = initialState;
 
   handleChange = event => {
@@ -59,71 +59,69 @@ const initialState = {
     if (isValid) {
       console.log(this.state);
       this.setState(initialState);
+      console.log('Logged')
     }
     else
       console.log('Login for go to the next page')
   };
   render() {
     return (
-          
-        <div> 
-            <h1 className='login-title'>Log in</h1>
-            <p className='login-paragraf'>Share with us your success</p>
-      <form onSubmit={this.handleSubmit} className='form'>
-         <img src={loginicon} className="login-icon" alt="" />
-        <div>
-          <input className='login-input'
-            name="name"
-            placeholder="Name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <div style={{ fontSize: 12, color: "red" }}>
-            {this.state.nameError}
-          </div>
-        </div>
-        <div>
-          <input className='login-input'
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <div style={{ fontSize: 12, color: "red" }}>
-            {this.state.emailError}
-          </div>
-        </div>
-        <div>
-          <input className='login-input'
-            type="password"
-            name="password"
-            placeholder= "Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            
-          /> <br />
-         <div style={{ fontSize: 12, color: "red" }}>
-            {this.state.passwordError}
-          </div>
-          <div>
-          <input className='login-input'
-            name="link"
-            placeholder="Link repository"
-            value={this.state.link}
-            onChange={this.handleChange}
-          />
-          <div style={{ fontSize: 12, color: "red" }}>
-            {this.state.linkError}
-          </div>
-        </div>
-          
-          
-        </div>
-        <button type="login" className="login-btn" onClick={this.buttonClick}> Login </button>
-      </form>
-      </div>
-    );
-  }
-}
+      <div> 
+      <h1 className='login-title'>Log in</h1>
+      <p className='login-paragraf'>Share with us your success</p>
+  <form onSubmit={this.handleSubmit} className='form'>
+   <img src={loginicon} className="login-icon" alt="" />
+  <div>
+    <input className='login-input'
+      name="name"
+      placeholder="Name"
+      value={this.state.name}
+      onChange={this.handleChange}
+    />
+    <div style={{ fontSize: 12, color: "red" }}>
+      {this.state.nameError}
+    </div>
+  </div>
+  <div>
+    <input className='login-input'
+      name="email"
+      placeholder="Email"
+      value={this.state.email}
+      onChange={this.handleChange}
+    />
+    <div style={{ fontSize: 12, color: "red" }}>
+      {this.state.emailError}
+    </div>
+  </div>
+  <div>
+    <input className='login-input'
+      type="password"
+      name="password"
+      placeholder= "Password"
+      value={this.state.password}
+      onChange={this.handleChange}
+      
+    /> <br />
+   <div style={{ fontSize: 12, color: "red" }}>
+      {this.state.passwordError}
+    </div>
+    <div>
+    <input className='login-input'
+      name="link"
+      placeholder="Link repository"
+      value={this.state.link}
+      onChange={this.handleChange}
+    />
+    <div style={{ fontSize: 12, color: "red" }}>
+      {this.state.linkError}
+    </div>
+  </div>
+    
+    
+  </div>
+ <button type="login" className="login-btn" onSubmit={this.handleSubmit}> Login </button> 
+</form>
+</div>
 
+    )}}
 export default Login;
