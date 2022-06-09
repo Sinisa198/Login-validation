@@ -1,115 +1,121 @@
-import React from "react";
-
-import loginicon from '../assets/images/loginicon.jpg'
-
-const initialState = {
-  name: "",
-  email: "",
-  password: "",
-  link: "",
-  nameError: "",
-  emailError: "",
-  passwordError: "",
-  linkError: ""
-};
+import { useState, useEffect } from "react";
+ 
+import { useNavigate} from 'react-router-dom'
 
 
-  class Login extends React.Component {
-     
-  state = initialState;
+  function Login() {
 
-  handleChange = event => {
-    const isCheckbox = event.target.type === "checkbox";
-    this.setState({
-      [event.target.name]: isCheckbox
-        ? event.target.checked
-        : event.target.value
-    });
-  };
-  validate = () => {
-    let nameError = "";
-    let emailError = "";
-    let passwordError = "";
-    let linkError = "";
+      const initialValues = { username: "", email: "", password: "", link: ""};
+      const [formValues, setFormValues] = useState(initialValues);
+      const [formErrors, setFormErrors] = useState({});
+      const [isSubmit, setIsSubmit] = useState(false);
+
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+      };
+      const navigate = useNavigate()
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validate(formValues));
+        setIsSubmit(true);
+      };
+
+      useEffect(() => {
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+          console.log(formValues);
+          navigate('/profile')
+        }
+      }, [formErrors]);
+      const validate = (values) => {
+
+        const errors = {};
+        const notValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+        const notValidLink = "github.com"
+
+        if (!values.username) {
+          errors.username = "Name is required!";
+        }
+        if (!values.email) {
+          errors.email = "Email is required!";
+        } else if (!notValid.test(values.email)) {
+          errors.email = "This is not a valid email format!";
+        }
+        if (!values.password) {
+          errors.password = "Password is required";
+        } else if (values.password.length < 4) {
+          errors.password = "Password must be more than 4 characters";
+        } else if (values.password.length > 10) {
+          errors.password = "Password cannot exceed more than 10 characters";
+        }
+        if (!values.link) {
+          errors.link = "Link is required";
+        }
+       
+        return errors;
+      };
+
+  return (
     
-    if (!this.state.name) {
-      nameError = "Name cannot be blank";
-    }
+    <div className="login-form">
+      <form onSubmit={handleSubmit} className="fadeIn first">
+        <h1>Login Form</h1>
 
-    if (!this.state.email.includes("@")) {
-      emailError = "Invalid email";
-    }
-    if (!this.state.password) {
-      passwordError = "Invalid password";
-    }
-    if (!this.state.link.includes("github.com")) {
-        linkError = "Invalid link repository"
-    }
-    if (emailError || nameError || passwordError || linkError) {
-      this.setState({ emailError, nameError, passwordError, linkError });
-      return false;
-    }
-    return true;
-    
-  };
+        <div className="ui divider"></div>
+        <div className="ui form">
+          <div className="field">
+            <input className="fadeIn second"
+              type="text"
+              name="username"
+              placeholder="Name"
+              value={formValues.username}
+              onChange={handleChange}
+            />
+          </div>
+          <p style={{color:"red"}} >{formErrors.username}</p>
 
-    handleSubmit = event => {
-    event.preventDefault();
-    const isValid = this.validate();
-    if (isValid) {
-      console.log(this.state);
-      this.setState(initialState);
-      console.log('Logged')
-    }
-    else
-      console.log('Login for go to the next page')
-  };
-  render() {
-    return (
-      <div className="login-form">
-      <div className="wrapper fadeInDown" onSubmit={this.handleSubmit} >
-      <div id="formContent" className="form-content">
-        <h2 className="active"> Sign In </h2>
-        <div className="fadeIn first">
-          <img src={loginicon} id="icon" alt="User Icon"  className="login-icon"/>
-        </div>
-    
-        <form>
-          <input type="text" id="name" className="fadeIn second" name="name" placeholder="Name"   
-          value={this.state.name}
-          onChange={this.handleChange}
-    />
-    <div style={{ fontSize: 12, color: "red" }}>
-      {this.state.nameError}
-    </div>
-    <input type="email" id="email" className="fadeIn second" name="email" placeholder="Email"   
-          value={this.state.email}
-          onChange={this.handleChange}
-    />
-    <div style={{ fontSize: 12, color: "red" }}>
-      {this.state.emailError}
-    </div>
-    <input type="password" id="password" className="fadeIn second" name="password" placeholder="Password"   
-          value={this.state.name}
-          onChange={this.handleChange}
-    />
-    <div style={{ fontSize: 12, color: "red" }}>
-      {this.state.passwordError}
-    </div>
-          <input type="text" id="link" className="fadeIn second" name="link" placeholder="Link repository " 
-          value={this.state.link}
-          onChange={this.handleChange}
-    />
-    <div style={{ fontSize: 12, color: "red" }}>
-      {this.state.linkError}
-    </div>
+          <div className="fadeIn second">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={formValues.email}
+              onChange={handleChange}
+            />
+          </div>
+          <p style={{color:"red"}} >{formErrors.email}</p>
+
+          <div className="fadeIn second">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formValues.password}
+              onChange={handleChange}
+            />
+            
+          </div>
+         <p style={{color:"red"}} >{formErrors.password}</p>
+          <div className="fadeIn second">
+            <input
+              type="text"
+              name="link"
+              placeholder="Link repository"
+              
+              value={formValues.link}
+              onChange={handleChange}
+              
+            />
+            
+          </div>
+          <p style={{color:"red"}}>{formErrors.link}</p>
+
           <input type="submit" className="fadeIn fourth" value="Log In" />
-        </form>
-    
-    
-      </div>
+        </div>
+      </form>
     </div>
-    </div>
+  );
+}
 
-    )}}
 export default Login;

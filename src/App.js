@@ -6,7 +6,7 @@ import Home from './page/Home'
 import Tips from './page/Tips'
 import Login from './page/Login'
 import Profile from './page/Profile';
-
+import Context from './components/Context';
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,6 +16,8 @@ const App = () => {
         <Route path="/tips" element={<Tips />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/context" element={<Context />} />
+
       </Routes>
     </BrowserRouter>
   )

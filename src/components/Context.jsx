@@ -1,65 +1,37 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { Component } from "react";
+import axios from "axios";
 
-const Context = () => {
 
-    const state = {
-        loggedInStatus: "NOT_LOGGED_IN",
-        user: {}
-      };
-  
-      this.handleLogin = this.handleLogin.bind(this);
-      this.handleLogout = this.handleLogout.bind(this);
-    }
-  
-    const checkLoginStatus = () => {
-      axios
-        .get("http://localhost:3002/profile", { withCredentials: true })
-        .then(response => {
-          if (
-            response.data.logged_in &&
-            state.loggedInStatus === "NOT_LOGGED_IN"
-          ) {
-            this.setState({
-              loggedInStatus: "LOGGED_IN",
-              user: response.data.user
-            });
-          } else if (
-            !response.data.logged_in &
-            (state.loggedInStatus === "LOGGED_IN")
-          ) {
-            this.setState({
-              loggedInStatus: "NOT_LOGGED_IN",
-              user: {}
-            });
-          }
-        })
-        .catch(error => {
-          console.log("check login error", error);
-        });
-    }
-  
-    const componentDidMount = () => {
-     checkLoginStatus();
-    }
-  
-    const handleLogout = () => {
-        setState({
-        loggedInStatus: "NOT_LOGGED_IN",
-        user: {}
+export default class Context extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+  }
+
+  handleSuccessfulAuth(data) {
+    this.props.handleLogin(data);
+    this.props.history.push("/dashboard");
+  }
+  handleLogoutClick() {
+    axios
+      .delete("http://localhost:3000/profile", { withCredentials: true })
+      .then(response => {
+        this.props.handleLogout();
+      })
+      .catch(error => {
+        console.log("logout error", error);
       });
-    }
-  
-    const handleLog = (data) => {
-      setState({
-        loggedInStatus: "LOGGED_IN",
-        user: data.user
-      });
-      return(
-        <div>
-          <h1>Hello</h1>
-        </div>
-      )
-    }
+  }
 
-export default Context
+  render() {
+    return (
+      <div>
+        <h1>Home</h1>
+        <h1>Status: {this.props.loggedInStatus}</h1>
+        <button onClick={() => this.handleLogoutClick()}>Logout</button>
+      </div>
+    );
+  }
+}
