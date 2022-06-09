@@ -1,7 +1,7 @@
 import React from "react";
 
 import loginicon from '../assets/images/loginicon.jpg'
-import { Link } from 'react-router-dom'
+
 const initialState = {
   name: "",
   email: "",
@@ -66,62 +66,50 @@ const initialState = {
   };
   render() {
     return (
-      <div> 
-      <h1 className='login-title'>Log in</h1>
-      <p className='login-paragraf'>Share with us your success</p>
-  <form onSubmit={this.handleSubmit} className='form'>
-   <img src={loginicon} className="login-icon" alt="" />
-  <div>
-    <input className='login-input'
-      name="name"
-      placeholder="Name"
-      value={this.state.name}
-      onChange={this.handleChange}
+      <div className="login-form">
+      <div className="wrapper fadeInDown" onSubmit={this.handleSubmit} >
+      <div id="formContent" className="form-content">
+        <h2 className="active"> Sign In </h2>
+        <div className="fadeIn first">
+          <img src={loginicon} id="icon" alt="User Icon"  className="login-icon"/>
+        </div>
+    
+        <form>
+          <input type="text" id="name" className="fadeIn second" name="name" placeholder="Name"   
+          value={this.state.name}
+          onChange={this.handleChange}
     />
     <div style={{ fontSize: 12, color: "red" }}>
       {this.state.nameError}
     </div>
-  </div>
-  <div>
-    <input className='login-input'
-      name="email"
-      placeholder="Email"
-      value={this.state.email}
-      onChange={this.handleChange}
+    <input type="email" id="email" className="fadeIn second" name="email" placeholder="Email"   
+          value={this.state.email}
+          onChange={this.handleChange}
     />
     <div style={{ fontSize: 12, color: "red" }}>
       {this.state.emailError}
     </div>
-  </div>
-  <div>
-    <input className='login-input'
-      type="password"
-      name="password"
-      placeholder= "Password"
-      value={this.state.password}
-      onChange={this.handleChange}
-      
-    /> <br />
-   <div style={{ fontSize: 12, color: "red" }}>
+    <input type="password" id="password" className="fadeIn second" name="password" placeholder="Password"   
+          value={this.state.name}
+          onChange={this.handleChange}
+    />
+    <div style={{ fontSize: 12, color: "red" }}>
       {this.state.passwordError}
     </div>
-    <div>
-    <input className='login-input'
-      name="link"
-      placeholder="Link repository"
-      value={this.state.link}
-      onChange={this.handleChange}
+          <input type="text" id="link" className="fadeIn second" name="link" placeholder="Link repository " 
+          value={this.state.link}
+          onChange={this.handleChange}
     />
     <div style={{ fontSize: 12, color: "red" }}>
       {this.state.linkError}
     </div>
-  </div>
+          <input type="submit" className="fadeIn fourth" value="Log In" />
+        </form>
     
     
-  </div>
- <button type="login" className="login-btn" onSubmit={this.handleSubmit}> Login </button> 
-</form>
-</div>
+      </div>
+    </div>
+    </div>
 
     )}}
 export default Login;

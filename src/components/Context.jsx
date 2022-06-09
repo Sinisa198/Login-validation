@@ -55,13 +55,11 @@ const Context = () => {
         loggedInStatus: "LOGGED_IN",
         user: data.user
       });
+      return(
+        <div>
+          <h1>Hello</h1>
+        </div>
+      )
     }
-    
-  return (
-    <div>
-      
-    </div>
-  )}
-
 
 export default Context
