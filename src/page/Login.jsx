@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
  
 import { useNavigate} from 'react-router-dom'
-
+import logoicon from '../assets/images/logoicon.jpg'
 
   function Login() {
 
@@ -32,8 +32,6 @@ import { useNavigate} from 'react-router-dom'
         const errors = {};
         const notValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-        const notValidLink = "github.com"
-
         if (!values.username) {
           errors.username = "Name is required!";
         }
@@ -60,12 +58,11 @@ import { useNavigate} from 'react-router-dom'
     
     <div className="login-form">
       <form onSubmit={handleSubmit} className="fadeIn first">
-        <h1>Login Form</h1>
-
-        <div className="ui divider"></div>
+        <h1 className="login-title">Share your success with us!</h1>
         <div className="ui form">
+          <img src={logoicon} className="login-icon" />
           <div className="field">
-            <input className="fadeIn second"
+            <input className="login-input"
               type="text"
               name="username"
               placeholder="Name"
@@ -75,7 +72,7 @@ import { useNavigate} from 'react-router-dom'
           </div>
           <p style={{color:"red"}} >{formErrors.username}</p>
 
-          <div className="fadeIn second">
+          <div className="login-input">
             <input
               type="text"
               name="email"
@@ -86,7 +83,7 @@ import { useNavigate} from 'react-router-dom'
           </div>
           <p style={{color:"red"}} >{formErrors.email}</p>
 
-          <div className="fadeIn second">
+          <div className="login-input">
             <input
               type="password"
               name="password"
@@ -97,7 +94,7 @@ import { useNavigate} from 'react-router-dom'
             
           </div>
          <p style={{color:"red"}} >{formErrors.password}</p>
-          <div className="fadeIn second">
+          <div className="login-input">
             <input
               type="text"
               name="link"
@@ -111,7 +108,7 @@ import { useNavigate} from 'react-router-dom'
           </div>
           <p style={{color:"red"}}>{formErrors.link}</p>
 
-          <input type="submit" className="fadeIn fourth" value="Log In" />
+          <input type="submit" className="login-button" value="Log In" />
         </div>
       </form>
     </div>
