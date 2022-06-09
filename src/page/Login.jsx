@@ -12,7 +12,7 @@ import logoicon from '../assets/images/logoicon.jpg'
 
       const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
+        setFormValues({ ...formValues, [name]: value});
       };
       const navigate = useNavigate()
       const handleSubmit = (e) => {
